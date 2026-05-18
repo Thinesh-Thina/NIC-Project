@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Form from "./pages/Form";
 import Signup from "./components/Signup";
 import HomePage from "./pages/HomePage";
@@ -35,21 +36,17 @@ function App() {
   }
 
   return (
-    <div>
-      <HomePage />
-
-      <Signup 
-        formValues={formData}
-        onChange={handleChange}
-      />
-
-      <Form
-        formValues={formData}
-        onChange={handleChange}
-      />
-
-      <p>{JSON.stringify(formData)}</p>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/signup" element={<Signup 
+          formValues={formData}
+          onChange={handleChange} />} />
+        <Route path="/form" element={<Form 
+          formValues={formData}
+          onChange={handleChange} />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

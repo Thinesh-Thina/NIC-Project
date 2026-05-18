@@ -38,6 +38,7 @@ function Form() {
   );
 
   return (
+    <form action="/form">
     <div>
       <div>
         <label htmlFor="flname">
@@ -206,6 +207,7 @@ function Form() {
       <p>{JSON.stringify(formData)}</p>
 
     </div>
+    </form>
   );
 }
 

@@ -18,9 +18,9 @@ function Signup() {
   const validating = {
     firstName: v => (!v ? "First name is required" : null),
     lastName: v => (!v ? "Last name is required" : null),
-    gender: v => (!v ? "Gender is required" : null),
     MobileNumber: v =>
       (!v || v.length < 10 ? "Invalid Phone Number" : null),
+    gender: v => (!v ? "Gender is required" : null),
     password: v =>
       (v.length < 8 ? "Password must be at least 8 characters" : null),
     ConfirmPassword: v =>
@@ -42,24 +42,35 @@ function Signup() {
     }));
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
+async function handleSubmit(e) {
+  e.preventDefault();
 
-    const errors = {};
+  const errors = {};
 
-    Object.keys(validating).forEach(key => {
-      const error = validating[key](formValues[key]);
-      if (error) {
-        errors[key] = error;
-      }
-    });
+  Object.keys(validating).forEach(key => {
+    const error = validating[key](formValues[key]);
+    if (error) errors[key] = error;
+  });
 
-    setFormErrors(errors);
+  setFormErrors(errors);
 
-    if (Object.keys(errors).length === 0) {
-      console.log("Form submitted:", formValues);
+  if (Object.keys(errors).length === 0) {
+    try {
+      await fetch("/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formValues)
+      });
+
+      alert("Signup successful");
+
+    } catch (err) {
+      console.log(err);
     }
   }
+}
 
   return (
     <form onSubmit={handleSubmit}>
@@ -163,6 +174,5 @@ function Signup() {
 
     </form>
   );
-}
-
+};
 export default Signup;

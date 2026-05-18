@@ -1,4 +1,11 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import schemetitle from "../assets/images/schemetitle.png";
+import tnwees from "../assets/images/tnwees.png";
+import kkt from "../assets/images/kkt.png";
+import needs from "../assets/images/needs.png";
+import uyegp from "../assets/images/uyegp.png";
+import aabcs from "../assets/images/aabcs.png";
 
 function HomePage() {
   useEffect(() => {
@@ -9,12 +16,30 @@ function HomePage() {
     document.body.appendChild(script);
   }, []);
 
+useEffect(() => {
+  const imgs = document.querySelectorAll(".slider img");
+  let current = 0;
+  const interval = setInterval(() => {
+    imgs[current].classList.remove("active");
+    current++;
+    if(current >= imgs.length){
+      current = 0;
+    }
+    imgs[current].classList.add("active");
+  }, 3000);
+  return () => clearInterval(interval);
+}, []);
+
+  const navigate = useNavigate();
+
   return (
+    <form action="/">
     <div id="home" className="home">
+      
 
       <header className="header">
-        <img className="logo-img" src="" alt="logo" />
-        <h1 className="logo-text">xyz</h1>
+        <img className="logo-img" src={schemetitle} alt="logo" />
+        <h1 className="logo-text"><span className="msmename">MSME-</span>SCHEME GENERATOR</h1>
 
         <form className="search-form" onSubmit={(e) => e.preventDefault()}>
           <input
@@ -30,26 +55,56 @@ function HomePage() {
         <nav className="nav">
           <a className="nav-link" href="#home">home</a>
           <a className="nav-link" href="#schemes">schemes</a>
-          <a className="nav-link" href="#contact">contact</a>
+          <a className="nav-link" href="#footer">contact</a>
         </nav>
 
-        <button className="signin-btn" type="button">
-          Sign in ➜
+        <button  className="signin-btn "
+          type="button"
+          onClick={() => navigate("/signup")}
+          >
+            Sign in ➜
         </button>
 
       </header>
 
+      <div className="slider">
+        <img src={schemetitle} alt="" className="active" />
+        <img src={tnwees} alt="" />
+        <img src={kkt} alt="" />
+        <img src={needs} alt="" />
+        <img src={uyegp} alt="" />
+       <img src={aabcs} alt="" />
+      </div>
+
+      <h2 className="scheme-list">
+        #GOVERNMENT MSME-SCHEMES FOR YOU!
+      </h2>
+
       <button className="cta-btn">Find Your Schemes ➜</button>
 
       <div className="scheme-stats">
-        <button className="stat-btn">5 schemes</button>
-        <button className="stat-btn">5 schemes</button>
-        <button className="stat-btn">5 schemes</button>
+        <button className="stat-btn">
+          <h5>
+            Top schemes
+            </h5>
+            <p>1.Tamil Nadu Women Entrepreneurs Empowerment Scheme</p>
+            <p>2.Kalaignar Kaivinai Thittam </p>
+            <p>3.Unemployed Youth Employment Generation Programme </p>
+            <p>4.New Entrepreneur -cum- Enterprise Development Scheme </p>
+            <p>5.Annal Ambedkar Business Champions Scheme </p>
+          </button>
+
+        <button className="stat-btn-2">
+          <h5>
+            Dashboard
+          </h5>
+          </button>
+          
       </div>
 
       <div className="how-it-works">
         <p className="section-subtitle">How it works</p>
-        <h2 className="section-title">Easy way to apply for Schemes</h2>
+        <h2 className="section-title">Easy steps to apply for Government  MSME-Schemes</h2>
 
         <div className="steps">
           <button className="step-card">
@@ -94,7 +149,7 @@ function HomePage() {
           <button className="type-btn">y</button>
         </div>
       </div>
-<div className="footer">
+<div className="footer" id="footer">
   <div className="footer-container">
 
     <div className="footer-brand">
@@ -121,6 +176,7 @@ function HomePage() {
   </div>
 </div>
     </div>
+    </form>
   );
 }
 
