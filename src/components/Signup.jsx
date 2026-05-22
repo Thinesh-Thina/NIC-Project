@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../signup.css";
 
 function Signup() {
 
@@ -73,6 +74,7 @@ async function handleSubmit(e) {
 }
 
   return (
+    <div className="signup-page">
     <form onSubmit={handleSubmit}>
 
       <h2>Signup</h2>
@@ -173,6 +175,7 @@ async function handleSubmit(e) {
       <button type="submit">Submit</button>
 
     </form>
+    </div>
   );
 };
 export default Signup;

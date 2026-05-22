@@ -18,11 +18,12 @@ function HomePage() {
 
 useEffect(() => {
   const imgs = document.querySelectorAll(".slider img");
+  if (imgs.length === 0) return;
   let current = 0;
   const interval = setInterval(() => {
     imgs[current].classList.remove("active");
     current++;
-    if(current >= imgs.length){
+    if (current >= imgs.length) {
       current = 0;
     }
     imgs[current].classList.add("active");
@@ -33,7 +34,6 @@ useEffect(() => {
   const navigate = useNavigate();
 
   return (
-    <form action="/">
     <div id="home" className="home">
       
 
@@ -80,7 +80,8 @@ useEffect(() => {
         #GOVERNMENT MSME-SCHEMES FOR YOU!
       </h2>
 
-      <button className="cta-btn">Find Your Schemes ➜</button>
+      <button className="cta-btn" type="button"
+          onClick={() => navigate("/form")}>Find Your Schemes ➜</button>
 
       <div className="scheme-stats">
         <button className="stat-btn">
@@ -176,7 +177,6 @@ useEffect(() => {
   </div>
 </div>
     </div>
-    </form>
   );
 }
 

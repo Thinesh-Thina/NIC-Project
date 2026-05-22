@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Locations from "../data/locations";
+import "../Form.css";
 
 function Form() {
 
@@ -38,6 +39,7 @@ function Form() {
   );
 
   return (
+    <div className="form-page">
     <form action="/form">
     <div>
       <div>
@@ -208,6 +210,7 @@ function Form() {
 
     </div>
     </form>
+    </div>
   );
 }
 

@@ -1,0 +1,314 @@
+.form-page * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.form-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+  padding: 40px 0;
+}
+
+.form-page form {
+  width: 100%;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.form-page form > div {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.15);
+  padding: 40px;
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-page form > div > div {
+  margin-bottom: 30px;
+}
+
+.form-page form > div > div:last-of-type {
+  margin-bottom: 20px;
+}
+
+.form-page label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: none;
+}
+
+.form-page label::after {
+  content: "";
+  margin-left: 4px;
+}
+
+.form-page input[type="text"],
+.form-page input[type="email"],
+.form-page input[type="tel"],
+.form-page input[type="number"],
+.form-page input[type="date"],
+.form-page input[type="password"],
+.form-page select,
+.form-page textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #333;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+  appearance: none;
+}
+
+.form-page select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
+  padding-right: 40px;
+}
+
+.form-page input[type="text"]:focus,
+.form-page input[type="email"]:focus,
+.form-page input[type="tel"]:focus,
+.form-page input[type="number"]:focus,
+.form-page input[type="date"]:focus,
+.form-page input[type="password"]:focus,
+.form-page select:focus,
+.form-page textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.form-page input[type="text"]:hover,
+.form-page input[type="email"]:hover,
+.form-page input[type="tel"]:hover,
+.form-page input[type="number"]:hover,
+.form-page input[type="date"]:hover,
+.form-page input[type="password"]:hover,
+.form-page select:hover,
+.form-page textarea:hover {
+  border-color: #667eea;
+  background-color: #f5f5f5;
+}
+
+.form-page input:disabled,
+.form-page select:disabled,
+.form-page textarea:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-page .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.form-page .container > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-page .container label {
+  margin-bottom: 8px;
+}
+
+.form-page .container select,
+.form-page .container input {
+  margin-bottom: 0;
+}
+
+.form-page form > div > p {
+  background: #f5f5f5;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #666;
+  font-family: 'Courier New', monospace;
+  word-break: break-all;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.form-page button[type="submit"],
+.form-page button[type="reset"] {
+  width: 48%;
+  padding: 12px 20px;
+  margin-right: 2%;
+  margin-top: 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-page button[type="submit"] {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.form-page button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.form-page button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+.form-page button[type="reset"] {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.form-page button[type="reset"]:hover {
+  background: #d0d0d0;
+}
+
+@media (max-width: 1024px) {
+  .form-page form > div {
+    padding: 30px;
+  }
+
+  .form-page form > div > div {
+    margin-bottom: 25px;
+  }
+
+  .form-page .container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .form-page input[type="text"],
+  .form-page input[type="email"],
+  .form-page input[type="tel"],
+  .form-page input[type="number"],
+  .form-page select {
+    padding: 11px 13px;
+    font-size: 13px;
+  }
+
+  .form-page label {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 767px) {
+  .form-page form {
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  .form-page form > div {
+    padding: 25px 20px;
+    border-radius: 10px;
+  }
+
+  .form-page form > div > div {
+    margin-bottom: 20px;
+  }
+
+  .form-page .container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .form-page input[type="text"],
+  .form-page input[type="email"],
+  .form-page input[type="tel"],
+  .form-page input[type="number"],
+  .form-page select {
+    padding: 11px 12px;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .form-page label {
+    font-size: 13px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .form-page button[type="submit"],
+  .form-page button[type="reset"] {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+    padding: 13px 20px;
+  }
+
+  .form-page form > div > p {
+    font-size: 11px;
+    padding: 12px;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-page form {
+    margin: 15px auto;
+    padding: 8px;
+  }
+
+  .form-page form > div {
+    padding: 20px 15px;
+  }
+
+  .form-page form > div > div {
+    margin-bottom: 18px;
+  }
+
+  .form-page input[type="text"],
+  .form-page input[type="email"],
+  .form-page input[type="tel"],
+  .form-page input[type="number"],
+  .form-page select {
+    padding: 10px 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .form-page label {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .form-page button[type="submit"],
+  .form-page button[type="reset"] {
+    padding: 12px 15px;
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+}
